@@ -39,7 +39,7 @@ class LogInScreen extends StatelessWidget {
                 ),
                 Center(
                   child: Text(
-                    'you can search course , apply course and find \n scholarship for aboarding studies',
+                    'You can search course, apply course and find \n scholarship for aboarding studies',
                     style: TextStyle(fontSize: 15, color: Colors.black38),
                     textAlign: TextAlign.center,
                   ),
