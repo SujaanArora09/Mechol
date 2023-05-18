@@ -8,10 +8,12 @@ class CommonButton extends StatelessWidget {
     super.key,
     required this.buttonText,
     required this.width,
+    this.color = Colors.blue,
   });
   final String buttonText;
 
   final double width;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +21,7 @@ class CommonButton extends StatelessWidget {
       height: 50,
       width: width * 0.6,
       decoration: BoxDecoration(
-          color: Colors.blue,
-          borderRadius: BorderRadius.all(Radius.circular(10))),
+          color: color, borderRadius: BorderRadius.all(Radius.circular(10))),
       child: Padding(
         padding: const EdgeInsets.only(top: 12),
         child: Text(
@@ -70,3 +71,7 @@ class CustomTextField extends StatelessWidget {
         ));
   }
 }
+
+//common textfield input
+
+

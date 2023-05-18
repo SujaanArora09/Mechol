@@ -85,7 +85,7 @@ class LogInScreen extends StatelessWidget {
                     onTap: () {
                       Get.to(SellerBuyer());
                     },
-                    child: CommonButton(buttonText: 'Log in', width: width)),
+                    child: CommonButton(buttonText: 'Log in', width: width, color: Colors.blue,)),
                 SizedBox(
                   height: 20,
                 ),
