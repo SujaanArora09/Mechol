@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:get/get.dart';
-import 'package:pranjal_intern2/screens/home_page.dart';
+import 'package:pranjal_intern2/screens/seller/home_page.dart';
 import 'package:pranjal_intern2/widgets/common_widgets.dart';
 
 class SellerBuyer extends StatefulWidget {
