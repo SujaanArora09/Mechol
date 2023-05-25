@@ -227,3 +227,287 @@ class greyList extends StatelessWidget {
     );
   }
 }
+
+/// wishlist vehjical container without button
+///
+class vehical_container_without_button extends StatelessWidget {
+  const vehical_container_without_button({
+    super.key,
+    required this.title,
+    required this.image,
+    required this.price,
+  });
+  final String title;
+  final String price;
+  final String image;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Color.fromARGB(255, 255, 255, 255),
+        borderRadius: BorderRadius.all(
+          Radius.circular(20),
+        ),
+      ),
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Image.asset(image),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 13, top: 10),
+                child: Text(
+                  title,
+                  style: TextStyle(
+                      color: Colors.blue,
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(right: 13, top: 10),
+                child: Text(
+                  price,
+                  style: TextStyle(
+                      color: Colors.blue,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 8, top: 5),
+            child: Row(
+              children: [
+                Icon(
+                  Icons.location_on,
+                  color: Colors.black38,
+                ),
+                Text(
+                  'Mumbai',
+                  style: TextStyle(color: Colors.black38),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+//offer rocket advatisement /// without scrooll wala
+
+class offer_advatisement extends StatelessWidget {
+  const offer_advatisement({
+    super.key,
+    required this.width,
+    required this.image,
+    required this.price,
+    required this.no_of_img,
+    required this.size,
+    required this.resolution,
+    required this.verification,
+    required this.link_website,
+    required this.plan,
+  });
+
+  final double width;
+  final String image;
+  final String price;
+  final String plan;
+  final String no_of_img;
+  final String size;
+  final String resolution;
+  final String verification;
+  final String link_website;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      //height: height * 0.4,
+      width: width,
+      decoration: BoxDecoration(color: Colors.white),
+      child: Column(
+        children: [
+          SizedBox(
+            height: 20,
+          ),
+          Image.asset(image),
+          SizedBox(
+            height: 10,
+          ),
+          Text(
+            plan,
+            style: TextStyle(fontWeight: FontWeight.w700),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Text(
+            price,
+            style: TextStyle(
+                fontSize: 25, fontWeight: FontWeight.bold, color: Colors.blue),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(13.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('No. if images :'),
+                Text(no_of_img),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(13.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('size :'),
+                Text(size),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(13.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('Resolution :'),
+                Text(resolution),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(13.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('Verification :'),
+                Text(verification),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(13.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('Link Website :'),
+                Text(link_website),
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+//grey contact customer//
+
+class grey_contact_customer extends StatelessWidget {
+  const grey_contact_customer({
+    super.key,
+    required this.height,
+    required this.width,
+    required this.title,
+    required this.date,
+    required this.manufacture,
+    required this.category,
+    required this.id,
+  });
+
+  final double height;
+  final double width;
+  final String title;
+  final String date;
+  final String manufacture;
+  final String category;
+  final String id;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: height * 0.3,
+      decoration: BoxDecoration(
+        color: Color.fromARGB(255, 211, 208, 208),
+        borderRadius: BorderRadius.all(
+          Radius.circular(20),
+        ),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [Text('info'), Text('Date')],
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  '15 KVA Mahindra single ph in\n Mumbai with conopy',
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  '12-05-23',
+                  style: TextStyle(fontWeight: FontWeight.w700),
+                )
+              ],
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('manufacture'),
+                Text('Cateegory'),
+                Text('List Id'),
+              ],
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Mahindra',
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
+                ),
+                Text(
+                  '5-15 KVA',
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
+                ),
+                Text(
+                  'wm#00031',
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 25,
+            ),
+            CommonButton(buttonText: 'Contact Customer', width: width * 1.5)
+          ],
+        ),
+      ),
+    );
+  }
+}

@@ -43,6 +43,7 @@ class _ProductDetailsState extends State<ProductDetails> {
         padding: const EdgeInsets.all(15.0),
         child: SingleChildScrollView(
           child: Container(
+            width: width,
             child: Column(
               children: [
                 CustomCarousel(imagelist[0], imagelist[1], imagelist[2],
@@ -209,7 +210,16 @@ class _ProductDetailsState extends State<ProductDetails> {
                     ],
                   ),
                 ),
-                Text('Seller'),
+                Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        'Seller',
+                        style: TextStyle(
+                            fontSize: 15, fontWeight: FontWeight.w600),
+                      ),
+                    )),
                 Container(
                   height: 60,
                   decoration: BoxDecoration(
@@ -221,8 +231,10 @@ class _ProductDetailsState extends State<ProductDetails> {
                   child: Row(
                     children: [
                       CircleAvatar(
-                          //backgroundImage: AssetImage('asset/images/crown.png'),
-                          ),
+                        backgroundImage: AssetImage(
+                          'assets/images/crown.png',
+                        ),
+                      ),
                       Padding(
                         padding: const EdgeInsets.all(10.0),
                         child: Text('Name'),
@@ -230,12 +242,189 @@ class _ProductDetailsState extends State<ProductDetails> {
                     ],
                   ),
                 ),
-                Text('Machine Location')
+                SizedBox(
+                  height: 10,
+                ),
+                Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      'Machine Location',
+                      style: TextStyle(fontSize: 15),
+                    )),
+
+                //map//
+                Container(
+                  height: height * 0.5,
+                  color: Colors.white,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        height: height * 0.3,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(20),
+                          ),
+                          color: Colors.red,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: RichText(
+                          text: TextSpan(
+                            text: 'seller:',
+                            style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w700,
+                                color: Colors.black),
+                            children: [
+                              TextSpan(text: ' '), // Add a space here
+                              TextSpan(
+                                text: 'seller name',
+                                style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.normal,
+                                    color: Colors.black),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 8),
+                        child: RichText(
+                          text: TextSpan(
+                            text: 'seller:',
+                            style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w700,
+                                color: Colors.black),
+                            children: [
+                              TextSpan(text: ' '), // Add a space here
+                              TextSpan(
+                                text: 'seller name',
+                                style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.normal,
+                                    color: Colors.black),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            CommonButton(
+                                buttonText: 'Chat', width: width * 0.65),
+                            CommonButton(
+                              buttonText: 'Call',
+                              width: width * 0.65,
+                              color: Colors.green,
+                            ),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Container(
+                  height: height * 0.12,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(20),
+                    ),
+                  ),
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          'Rate Us',
+                          style: TextStyle(
+                              fontSize: 17, fontWeight: FontWeight.w700),
+                        ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          stars(),
+                          stars(),
+                          stars(),
+                          stars(),
+                          stars(),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+                Container(
+                  height: height * 0.4,
+                  width: width * 0.7,
+                  child: Image.asset(
+                    'assets/images/poster.png',
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                Container(
+                  height: height * 0.4,
+                  //width: width * 0.7,
+                  child: Image.asset(
+                    'assets/images/poster.png',
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      'Related to your search',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w600),
+                    ),
+                  ),
+                ),
+                vehical_container(
+                    width: width * 0.9,
+                    image: 'assets/images/vehical1.png',
+                    title: '400 KVA',
+                    price: 'RS.5,00,00'),
+                vehical_container(
+                    width: width * 0.9,
+                    image: 'assets/images/vehical1.png',
+                    title: '400 KVA',
+                    price: 'RS.5,00,00'),
+                vehical_container(
+                    width: width * 0.9,
+                    image: 'assets/images/vehical1.png',
+                    title: '400 KVA',
+                    price: 'RS.5,00,00')
               ],
             ),
           ),
         ),
       ),
+    );
+  }
+}
+
+class stars extends StatelessWidget {
+  const stars({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Icon(
+      Icons.star,
+      color: Colors.yellow,
+      size: 35,
     );
   }
 }

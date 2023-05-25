@@ -6,6 +6,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:get/get.dart';
 import 'package:pranjal_intern2/confirm/seller_buyer.dart';
+import 'package:pranjal_intern2/home_view.dart';
 import 'package:pranjal_intern2/widgets/common_widgets.dart';
 
 class LogInScreen extends StatelessWidget {
@@ -83,9 +84,14 @@ class LogInScreen extends StatelessWidget {
                 ),
                 InkWell(
                     onTap: () {
-                      Get.to(SellerBuyer());
+                      // Get.to(SellerBuyer());
+                      Get.to(HomeView());
                     },
-                    child: CommonButton(buttonText: 'Log in', width: width, color: Colors.blue,)),
+                    child: CommonButton(
+                      buttonText: 'Log in',
+                      width: width,
+                      color: Colors.blue,
+                    )),
                 SizedBox(
                   height: 20,
                 ),

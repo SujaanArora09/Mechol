@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:get/get.dart';
+import 'package:pranjal_intern2/onboarding_screens/onboarding_screen.dart';
 import 'package:pranjal_intern2/screens/seller/home_page.dart';
+import 'package:pranjal_intern2/screens/seller/seller_registration_1.dart';
 import 'package:pranjal_intern2/widgets/common_widgets.dart';
 
 class SellerBuyer extends StatefulWidget {
@@ -16,6 +18,8 @@ class SellerBuyer extends StatefulWidget {
 
 class _SellerBuyerState extends State<SellerBuyer> {
   late int select = 0;
+  int seller = 1;
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -54,7 +58,7 @@ class _SellerBuyerState extends State<SellerBuyer> {
                   } else {
                     select = 1;
                   }
-
+                  seller = 1;
                   setState(() {});
                 },
                 child: Container(
@@ -94,6 +98,8 @@ class _SellerBuyerState extends State<SellerBuyer> {
                   } else {
                     select = 1;
                   }
+                  seller = 0;
+                  setState(() {});
                 },
                 child: Container(
                   height: 170,
@@ -134,7 +140,12 @@ class _SellerBuyerState extends State<SellerBuyer> {
               ),
               InkWell(
                 onTap: () {
-                  Get.to(HomePage());
+                  if (seller == 1 && select == 1) {
+                    Get.to(SellerRegistration1());
+                  } else if (seller == 0 && select == 1) {
+                    Get.to(OnboardingScreen());
+                  }
+                  // Get.to();
                   print(select);
                 },
                 child: CommonButton(

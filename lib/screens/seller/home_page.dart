@@ -21,38 +21,38 @@ class _HomePageState extends State<HomePage> {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
-        appBar: AppBar(
-          //centerTitle: true,
-          leading: IconButton(
-            onPressed: () {
-              Get.to(ProfilePage());
-            },
-            icon: Icon(Icons.menu),
-          ),
-          title: Padding(
-            padding: const EdgeInsets.only(right: 23),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Icon(
-                    Icons.location_on,
-                  ),
-                ),
-                Text('Mumbai'),
-              ],
-            ),
-          ),
-          actions: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Icon(
-                Icons.notifications,
-              ),
-            ),
-          ],
-        ),
+        // appBar: AppBar(
+        //   //centerTitle: true,
+        //   leading: IconButton(
+        //     onPressed: () {
+        //       Get.to(ProfilePage());
+        //     },
+        //     icon: Icon(Icons.menu),
+        //   ),
+        //   title: Padding(
+        //     padding: const EdgeInsets.only(right: 23),
+        //     child: Row(
+        //       mainAxisAlignment: MainAxisAlignment.center,
+        //       children: [
+        //         Padding(
+        //           padding: const EdgeInsets.all(8.0),
+        //           child: Icon(
+        //             Icons.location_on,
+        //           ),
+        //         ),
+        //         Text('Mumbai'),
+        //       ],
+        //     ),
+        //   ),
+        //   actions: [
+        //     Padding(
+        //       padding: const EdgeInsets.all(8.0),
+        //       child: Icon(
+        //         Icons.notifications,
+        //       ),
+        //     ),
+        //   ],
+        // ),
         drawer: Menu(),
         body: Container(
           color: Color.fromARGB(255, 226, 219, 219),
