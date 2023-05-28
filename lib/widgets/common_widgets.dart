@@ -7,7 +7,6 @@ import 'package:pranjal_intern2/screens/seller/product_details.dart';
 //import '../screens/machinedetails.dart';
 
 //button
-
 class CommonButton extends StatelessWidget {
   const CommonButton({
     super.key,
@@ -33,6 +32,52 @@ class CommonButton extends StatelessWidget {
           buttonText,
           textAlign: TextAlign.center,
           style: TextStyle(color: Colors.white, fontSize: 17),
+        ),
+      ),
+    );
+  }
+}
+
+class CustomButton extends StatelessWidget {
+  final VoidCallback onClick;
+  final String text;
+  final double? height;
+  final double? width;
+  final TextStyle? textStyle;
+  final Color? buttonColor;
+  final double? radius;
+  final Color? bcolor;
+  const CustomButton(
+      {super.key,
+        required this.text,
+        this.bcolor,
+        this.radius,
+        required this.onClick,
+        this.width,
+        this.height,
+        this.buttonColor,
+        this.textStyle});
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: onClick,
+      style: ElevatedButton.styleFrom(
+          padding: EdgeInsets.zero,
+          shape: RoundedRectangleBorder(
+              side: BorderSide(color: bcolor ?? Colors.transparent),
+              borderRadius: BorderRadius.circular(radius ?? 8.5)),
+          minimumSize:
+          Size(width ?? MediaQuery.of(context).size.width, height ?? 55),
+          backgroundColor: buttonColor == null ? Color(0xff0582ca) : buttonColor),
+      child: Text(
+        textAlign: TextAlign.center,
+        text,
+        style: textStyle ?? const TextStyle(
+          color: Colors.white,
+          fontSize: 18,
+          fontFamily: "Poppins",
+          fontWeight: FontWeight.w500,
         ),
       ),
     );
@@ -77,8 +122,6 @@ class CustomTextField extends StatelessWidget {
   }
 }
 
-//vehical container
-
 class vehical_container extends StatelessWidget {
   const vehical_container({
     super.key,
@@ -96,7 +139,7 @@ class vehical_container extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Color.fromARGB(255, 255, 255, 255),
         borderRadius: BorderRadius.all(
           Radius.circular(20),

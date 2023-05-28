@@ -16,12 +16,6 @@ class BuildPage extends StatelessWidget {
   final String heading;
   final String subTitle;
 
-  /**
-    * snake case: hint_text -> file name, image name, project name,
-    lower camel case: hintText -> variable declare, function declare,
-    upper camel case: HintText -> class/widget
-    */
-
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -62,43 +56,13 @@ class BuildPage extends StatelessWidget {
                       ),
                       Text(
                         subTitle,
-                        // 'contrary to popular belief,Loerwk kfjfwk \n jf fnk khef wfnkf dshef kfhef mff \n efbefefehgfefenfejf jfgef\n',
                         textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 14, color: Colors.black38),
+                        style: const TextStyle(fontSize: 14, color: Colors.black38),
                       ),
                     ],
                   ),
                 ),
               ),
-              // Positioned(
-              //   top: height * 0.82,
-              //   left: width * 0.188,
-              //   child: InkWell(
-              //       onTap: () {
-              //         //Get.to(OnboardingScreen1());
-              //         // Navigator.pushNamed(
-              //         //   context,
-              //         //   'onboarding2',
-              //         // );
-              //         // Navigator.push(
-              //         //     context,
-              //         //     MaterialPageRoute(
-              //         //         builder: (context) => const OnboardingScreen2()));
-              //         Get.to(OnboardingScreen2());
-              //       },
-              //       child: CommonButton(width: width)),
-              // ),
-              // Positioned(
-              //   top: height * 0.9,
-              //   left: width * 0.4,
-              //   child: TextButton(
-              //     onPressed: () {},
-              //     child: const Text(
-              //       'Skip',
-              //       style: TextStyle(color: Colors.black26),
-              //     ),
-              //   ),
-              // )
             ],
           ),
         ),

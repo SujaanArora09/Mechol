@@ -27,8 +27,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
+
     return Scaffold(
+      backgroundColor: Colors.white,
         body: PageView(
           controller: controller,
           onPageChanged: (index) {
@@ -45,7 +46,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             ),
             BuildPage(
               heading: "Choose Best Machines",
-              imgLoc: "assets/images/onboarding_2.png",
+                imgLoc: "assets/images/onboarding_2.png",
               subTitle:
                   'contrary to lorem porem donsdkjf ksadfj askdfj nakdjf nadskfj nadskfj nasdkfj n',
             ),
@@ -57,60 +58,70 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             ),
           ],
         ),
-        bottomSheet: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            (isLastPage)
-                ? SizedBox(
-                    height: 90,
-                    child: Column(
-                      children: [
-                        InkWell(
-                          onTap: () {
-                            Get.to(SignUpScreen());
-                          },
-                          child: CommonButton(
-                            width: width,
-                            buttonText: "Get Started",
-                          ),
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                      ],
+        bottomSheet: (isLastPage)
+            ? Container(
+          color: Colors.white,
+                margin: const EdgeInsets.symmetric(horizontal: 40),
+                height: 90,
+                child: Column(
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        Get.to(SignUpScreen());
+                      },
+                      child: CustomButton(
+                        width: width,
+                         text: 'Get Started', onClick: () {  },
+                      ),
                     ),
-                  )
-                : Container(
-                    height: 90,
-                    child: Column(
-                      children: [
-                        InkWell(
-                          onTap: () {
-                            controller.nextPage(
-                                duration: Duration(milliseconds: 200),
-                                curve: Curves.easeInOut);
-                          },
-                          child: CommonButton(
-                            width: width,
-                            buttonText: "Next",
-                          ),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        InkWell(
-                          onTap: () {
-                            controller.jumpToPage(2);
-                          },
-                          child: Text("Skip"),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                      ],
+                    const SizedBox(
+                      height: 20,
                     ),
-                  ),
-          ],
-        ));
+                  ],
+                ),
+              )
+            : Container(
+                color: Colors.white,
+                height: 100,
+                child: Column(
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        controller.nextPage(
+                            duration: const Duration(milliseconds: 200),
+                            curve: Curves.easeInOut);
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.symmetric(horizontal: 40),
+                        child: CustomButton(
+                          width: width,
+                          text: 'Next', onClick: () {
+                          controller.nextPage(
+                              duration: Duration(milliseconds: 200),
+                              curve: Curves.easeInOut);
+                        },
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 13,
+                    ),
+                    InkWell(
+                      onTap: () {
+                        controller.jumpToPage(2);
+                      },
+                      child: const Text("Skip",
+                        style: TextStyle(
+                          color: Color(0xff677294),
+                          fontSize: 14,
+                        ),),
+                    ),
+                    SizedBox(
+                      height: 10,
+
+                    ),
+                  ],
+                ),
+              ));
   }
 }
