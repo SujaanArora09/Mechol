@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:pranjal_intern2/widgets/common_widgets.dart';
+import 'package:Sujaan_MecholApp/widgets/common_widgets.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -56,7 +56,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 child: CircleAvatar(
                                   radius: 35,
                                   backgroundImage:
-                                      AssetImage('assets/images/buyer.png'),
+                                      AssetImage('assets/images/FaceBookLogo.png'),
                                 ),
                               ),
                               Padding(

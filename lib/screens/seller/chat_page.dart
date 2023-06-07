@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:Sujaan_MecholApp/widgets/gradientAppBar.dart';
 
 class ChatPage extends StatefulWidget {
   const ChatPage({super.key});
@@ -13,42 +14,116 @@ class _ChatPageState extends State<ChatPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        leading: IconButton(
-            onPressed: () {},
-            icon: IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back))),
-        actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.notifications))
-        ],
-        title: Text('Chat'),
+      appBar: GradientAppBar(
+        title: "Chat",
+        bellIcon: true,
+        backButton: true,
       ),
       body: Column(
         children: [
           Container(
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    CircleAvatar(
-                      backgroundImage: AssetImage('assets/images/crown.png'),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 170),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'name',
-                            style: TextStyle(fontWeight: FontWeight.w500),
-                          ),
-                          Text('message'),
-                        ],
+              padding: const EdgeInsets.all(10),
+              child:
+              Column(
+                children: [
+                  ListTile(
+                    leading: CircleAvatar(radius: 27,),
+                    title: Text(
+                      "Ramesh Joshi",
+                      style: TextStyle(
+                        color: Color(0xff333333),
+                        fontSize: 16,
+                        fontFamily: "Lexend",
+                        fontWeight: FontWeight.w500,
                       ),
                     ),
-                    Text('12:00 AM')
-                  ]),
+                    subtitle: Text(
+                      "What will be the final price?",
+                      style: TextStyle(
+                        color: Color(0xff333333),
+                        fontSize: 12,
+                      ),
+                    ),
+                    trailing: Column(
+                      children: [
+                        SizedBox(height:10,),
+                        Text(
+                          "12:02 pm",
+                          style: TextStyle(
+                            color: Color(0xff676767),
+                            fontSize: 12,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  ListTile(
+                    leading: CircleAvatar(radius: 27,),
+                    title: Text(
+                      "Ramesh Joshi",
+                      style: TextStyle(
+                        color: Color(0xff333333),
+                        fontSize: 16,
+                        fontFamily: "Lexend",
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    subtitle: Text(
+                      "What will be the final price?",
+                      style: TextStyle(
+                        color: Color(0xff333333),
+                        fontSize: 12,
+                      ),
+                    ),
+                    trailing: Column(
+                      children: [
+                        SizedBox(height:10,),
+                        Text(
+                          "12:02 pm",
+                          style: TextStyle(
+                            color: Color(0xff676767),
+                            fontSize: 12,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  ListTile(
+                    leading: CircleAvatar(radius: 27,),
+                    title: Text(
+                      "Ramesh Joshi",
+                      style: TextStyle(
+                        color: Color(0xff333333),
+                        fontSize: 16,
+                        fontFamily: "Lexend",
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    subtitle: Text(
+                      "What will be the final price?",
+                      style: TextStyle(
+                        color: Color(0xff333333),
+                        fontSize: 12,
+                      ),
+                    ),
+                    trailing: Column(
+                      children: [
+                        SizedBox(height:10,),
+                        Text(
+                          "12:02 pm",
+                          style: TextStyle(
+                            color: Color(0xff676767),
+                            fontSize: 12,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+
+                ],
+              ),
+
             ),
           )
         ],

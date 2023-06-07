@@ -2,11 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
-import 'package:pranjal_intern2/app_bars.dart';
-import 'package:pranjal_intern2/screens/seller/home_page.dart';
-import 'package:pranjal_intern2/screens/seller/sell_machine_1.dart';
-import 'package:pranjal_intern2/screens/seller/wanted_machine.dart';
-import 'package:pranjal_intern2/widgets/navbar_data.dart';
+import 'package:Sujaan_MecholApp/app_bars.dart';
+import 'package:Sujaan_MecholApp/screens/seller/home_page.dart';
+import 'package:Sujaan_MecholApp/screens/seller/sell_machine_1.dart';
+import 'package:Sujaan_MecholApp/screens/seller/wanted_machine.dart';
+import 'package:Sujaan_MecholApp/widgets/navbar_data.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);

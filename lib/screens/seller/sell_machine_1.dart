@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:pranjal_intern2/widgets/common_widgets.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:Sujaan_MecholApp/screens/seller/sell_machine_2.dart';
+import 'package:Sujaan_MecholApp/widgets/common_widgets.dart';
+import 'package:Sujaan_MecholApp/widgets/gradientAppBar.dart';
 
 class SellMachine1 extends StatefulWidget {
   const SellMachine1({super.key});
@@ -9,92 +12,126 @@ class SellMachine1 extends StatefulWidget {
   @override
   State<SellMachine1> createState() => _SellMachine1State();
 }
-
+List registrationInfoList = ['Sell Machine', 'Rent Machine'];
+int selectedregistrationIndex = 0;
 class _SellMachine1State extends State<SellMachine1> {
+
+  bool stockin = false;
+
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
-      // appBar: AppBar(
-      //   centerTitle: true,
-      //   leading: IconButton(
-      //     onPressed: () {},
-      //     icon: Icon(Icons.arrow_back),
-      //   ),
-      //   title: Text('Sell Machine'),
-      //   actions: [
-      //     IconButton(onPressed: () {}, icon: Icon(Icons.notifications))
-      //   ],
-      // ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                child: Column(
-                  children: [
-                    CustomTextField(
-                        width: width * 2,
-                        hint: 'Rental provider',
-                        label: 'Type'),
-                    CustomTextField(
-                        width: width * 2,
-                        hint: '50KVA VAN Mounted Generator',
-                        label:
-                            'Machine Name (e.g. 50KVA Kirloskar make three ph Generator for sell)'),
-                    CustomTextField(
-                        width: width * 2,
-                        hint: 'Expected Selling Price',
-                        label: ''),
-                    CustomTextField(
-                        width: width * 2,
-                        hint: 'Description (above bracket)',
-                        label: ''),
-                    SizedBox(
-                      height: 10,
+      appBar: GradientAppBar(
+        title: 'Sell Machine',
+        backButton: false,
+        bellIcon: true,
+      ),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Container(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Type",
+                    style: TextStyle(
+                      color: Color(0xff222222),
+                      fontSize: 14,
+                      fontFamily: "Poppins",
+                      fontWeight: FontWeight.w500,
                     ),
-                  ],
-                ),
+                  ),
+                  CustomTextField(
+                      width: width * 2,
+                      label: 'Rental provider',
+                      ),
+                  SizedBox(height: 40,),
+                  Text(
+                    "Machine Name (e.g. 50KVA Kirloskar make three ph Generator for sell)",
+                    style: TextStyle(
+                      color: Color(0xff222222),
+                      fontSize: 14,
+                      fontFamily: "Poppins",
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  CustomTextField(
+                      width: width * 2,
+                      label: '50KVA VAN Mounted Generator',
+                      ),
+                  CustomTextField(
+                      width: width * 2,
+                      label: 'Expected Selling Price',
+                      ),
+                  CustomTextField(
+                      width: width * 2,
+                      label: 'Description (above bracket)',
+                      ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: SizedBox(
+                          height: 40,
+                          child: ListView.builder(
+                              itemCount: registrationInfoList.length,
+                              scrollDirection: Axis.horizontal,
+                              itemBuilder: (ctx, i) {
+                                return InkWell(
+                                  onTap: () {
+                                    selectedregistrationIndex = i;
+                                    setState(() {});
+                                  },
+                                  child: Row(
+                                    children: [
+                                      Icon(
+                                        selectedregistrationIndex == i
+                                            ? Icons.radio_button_checked_outlined
+                                            : Icons.radio_button_off_outlined,
+                                        color: selectedregistrationIndex == i
+                                            ? Colors.blueAccent
+                                            : Colors.grey,
+                                      ),
+                                      SizedBox(width: 6,),
+                                      Text(
+                                        registrationInfoList[i],
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 16,
+                                        ),
+                                      ),
+                                      const SizedBox(width: 65,)
+                                    ],
+                                  ),
+                                );
+                              }),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
-            Row(
-              children: [
-                Expanded(
-                  child: RadioListTile(
-                    title: Text(
-                      "Sell Machine",
-                      style: TextStyle(fontSize: 14),
-                    ),
-                    value: "Sell Machine",
-                    groupValue: "Sell Machine",
-                    onChanged: (value) {
-                      setState(() {});
-                    },
-                  ),
-                ),
-                Expanded(
-                  child: RadioListTile(
-                    title: Text("Rent Machine", style: TextStyle(fontSize: 14)),
-                    value: "Rent Machine",
-                    groupValue: "Rent Machine",
-                    onChanged: (value) {
-                      setState(() {});
-                    },
-                  ),
-                ),
-              ],
+          ),
+
+          Expanded(
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                margin: EdgeInsets.only(bottom: 20),
+                child: CustomButton(text: "Proceed", onClick: (){
+                      Get.to(SellMachine2());
+                }),
+              ),
             ),
-            SizedBox(
-              height: height * 0.34,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: CommonButton(buttonText: 'Proceed', width: width * 2),
-            )
-          ],
-        ),
+          )
+        ],
       ),
     );
   }

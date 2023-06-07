@@ -2,7 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:pranjal_intern2/screens/seller/product_details.dart';
+import 'package:Sujaan_MecholApp/screens/seller/product_details.dart';
+import 'package:flutter/material.dart';
+import 'package:Sujaan_MecholApp/widgets/common_widgets.dart';
 
 //import '../screens/machinedetails.dart';
 
@@ -22,16 +24,22 @@ class CommonButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 50,
+      height: 38,
       width: width * 0.6,
       decoration: BoxDecoration(
-          color: color, borderRadius: BorderRadius.all(Radius.circular(10))),
-      child: Padding(
-        padding: const EdgeInsets.only(top: 12),
+        borderRadius: BorderRadius.circular(10),
+        color: Color(0xff0582ca),
+      ),
+      child: Center(
         child: Text(
           buttonText,
           textAlign: TextAlign.center,
-          style: TextStyle(color: Colors.white, fontSize: 17),
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 12,
+            fontFamily: "Poppins",
+            fontWeight: FontWeight.w500,
+          ),
         ),
       ),
     );
@@ -60,24 +68,27 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: onClick,
-      style: ElevatedButton.styleFrom(
-          padding: EdgeInsets.zero,
-          shape: RoundedRectangleBorder(
-              side: BorderSide(color: bcolor ?? Colors.transparent),
-              borderRadius: BorderRadius.circular(radius ?? 8.5)),
-          minimumSize:
-          Size(width ?? MediaQuery.of(context).size.width, height ?? 55),
-          backgroundColor: buttonColor == null ? Color(0xff0582ca) : buttonColor),
-      child: Text(
-        textAlign: TextAlign.center,
-        text,
-        style: textStyle ?? const TextStyle(
-          color: Colors.white,
-          fontSize: 18,
-          fontFamily: "Poppins",
-          fontWeight: FontWeight.w500,
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 40),
+      child: ElevatedButton(
+        onPressed: onClick,
+        style: ElevatedButton.styleFrom(
+            padding: EdgeInsets.zero,
+            shape: RoundedRectangleBorder(
+                side: BorderSide(color: bcolor ?? Colors.transparent),
+                borderRadius: BorderRadius.circular(radius ?? 8.5)),
+            minimumSize:
+            Size(width ?? MediaQuery.of(context).size.width, height ?? 55),
+            backgroundColor: buttonColor == null ? Color(0xff0582ca) : buttonColor),
+        child: Text(
+          textAlign: TextAlign.center,
+          text,
+          style: textStyle ?? const TextStyle(
+            color: Colors.white,
+            fontSize: 18,
+            fontFamily: "Poppins",
+            fontWeight: FontWeight.w500,
+          ),
         ),
       ),
     );
@@ -89,10 +100,10 @@ class CustomButton extends StatelessWidget {
 class CustomTextField extends StatelessWidget {
   CustomTextField({
     required this.width,
-    required this.hint,
+    this.hint,
     required this.label,
   });
-  final String hint;
+  final String? hint;
   final String label;
   final double width;
 
@@ -100,7 +111,7 @@ class CustomTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         height: 60,
-        width: width * 0.8,
+        width: width,
         child: TextField(
           keyboardType: (hint == "Mobile Number") ? TextInputType.phone : null,
           obscureText: (hint == "Password" || hint == "") ? true : false,
@@ -113,7 +124,11 @@ class CustomTextField extends StatelessWidget {
             //hintStyle: TextStyle(color: Colors.blue),
             label: Text(
               label,
-              style: TextStyle(fontSize: 18),
+              style: const TextStyle(
+                fontSize: 16  ,
+                fontFamily: "Poppins",
+                fontWeight: FontWeight.w300,
+              ),
             ),
 
             //border: InputBorder.none,
@@ -129,80 +144,86 @@ class vehical_container extends StatelessWidget {
     required this.image,
     required this.title,
     required this.price,
+    required this.location,
   });
 
   final double width;
   final String image;
   final String title;
   final String price;
+  final String location;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
-        color: Color.fromARGB(255, 255, 255, 255),
-        borderRadius: BorderRadius.all(
-          Radius.circular(20),
-        ),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        color: Colors.white,
       ),
+      padding: const EdgeInsets.all(12),
       child: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Image.asset(image),
-          ),
+          Stack(
+              children: [
+                Image.asset(image),
+                Positioned(
+                  top:15,
+                    right: 15,
+                    child: Icon(Icons.favorite,color: Colors.white,))
+              ]),
+          SizedBox(height: 10,),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 13, top: 10),
-                child: Text(
-                  title,
-                  style: TextStyle(
-                      color: Colors.blue,
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold),
+              Text(
+                title,
+                style: TextStyle(
+                  color: Color(0xff0582ca),
+                  fontSize: 14,
+                  fontFamily: "Poppins",
+                  fontWeight: FontWeight.w600,
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(right: 13, top: 10),
-                child: Text(
-                  price,
-                  style: TextStyle(
-                      color: Colors.blue,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold),
+              Text(
+                price,
+                style: const TextStyle(
+                  color: Color(0xff0582ca),
+                  fontSize: 16,
+                  fontFamily: "Poppins",
+                  fontWeight: FontWeight.w700,
                 ),
               ),
             ],
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 8, top: 5),
-            child: Row(
-              children: [
-                Icon(
-                  Icons.location_on,
-                  color: Colors.black38,
-                ),
-                Text(
-                  'Mumbai',
-                  style: TextStyle(color: Colors.black38),
-                ),
-              ],
-            ),
-          ),
+          SizedBox(height: 4,),
           Row(
             children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
+              const Icon(
+                Icons.location_on,
+                color: Colors.black38,
+                size: 18,
+              ),
+              Text(
+                location,
+                style: TextStyle(color: Colors.black38),
+              ),
+            ],
+          ),
+          SizedBox(height: 12,),
+          Row(
+            children: [
+              Expanded(
+                flex: 1,
                 child: CommonButton(
-                  buttonText: 'show Intrest',
+                  buttonText: 'Show Interest',
                   width: width * 0.7,
                   color: Colors.green,
+
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
+              SizedBox(width: 16,),
+              Expanded(
+                flex: 1,
                 child: InkWell(
                   onTap: () {
                     Get.to(ProductDetails());
@@ -210,7 +231,7 @@ class vehical_container extends StatelessWidget {
                   child: CommonButton(
                     buttonText: 'View Details',
                     width: width * 0.7,
-                    color: Colors.blue,
+                    color: Color(0xff0582ca),
                   ),
                 ),
               )
@@ -237,32 +258,35 @@ class greyList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 60,
+      width: double.infinity,
+      padding: EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: Color.fromARGB(255, 206, 202, 202),
+        color: Color(0xffe2e2e2),
         borderRadius: BorderRadius.all(
-          Radius.circular(17),
+          Radius.circular(10),
         ),
       ),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.max,
         children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                title,
-                style: TextStyle(color: Colors.black87),
-              ),
+          Text(
+            title,
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 12,
+              fontFamily: "Poppins",
+              fontWeight: FontWeight.w500,
             ),
           ),
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Padding(
-              padding: const EdgeInsets.only(left: 10),
-              child: Text(
-                date,
-                style: TextStyle(color: Colors.black38),
-              ),
+          Text(
+            date,
+            style: TextStyle(
+              color: Color(0xff676767),
+              fontSize: 10,
+              fontFamily: "Poppins",
+              fontWeight: FontWeight.w500,
             ),
           ),
         ],
@@ -271,8 +295,6 @@ class greyList extends StatelessWidget {
   }
 }
 
-/// wishlist vehjical container without button
-///
 class vehical_container_without_button extends StatelessWidget {
   const vehical_container_without_button({
     super.key,
@@ -287,11 +309,10 @@ class vehical_container_without_button extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        color: Color.fromARGB(255, 255, 255, 255),
-        borderRadius: BorderRadius.all(
-          Radius.circular(20),
-        ),
+      margin: EdgeInsets.all(10),
+      decoration:  BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        color: Colors.white,
       ),
       child: Column(
         children: [
@@ -307,9 +328,11 @@ class vehical_container_without_button extends StatelessWidget {
                 child: Text(
                   title,
                   style: TextStyle(
-                      color: Colors.blue,
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold),
+    color: Color(0xff0582ca),
+    fontSize: 14,
+    fontFamily: "Poppins",
+    fontWeight: FontWeight.w600,
+    ),
                 ),
               ),
               Padding(
@@ -317,9 +340,11 @@ class vehical_container_without_button extends StatelessWidget {
                 child: Text(
                   price,
                   style: TextStyle(
-                      color: Colors.blue,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold),
+    color: Color(0xff0582ca),
+    fontSize: 16,
+    fontFamily: "Poppins",
+    fontWeight: FontWeight.w700,
+    ),
                 ),
               ),
             ],
@@ -331,11 +356,18 @@ class vehical_container_without_button extends StatelessWidget {
                 Icon(
                   Icons.location_on,
                   color: Colors.black38,
+                  size: 14,
                 ),
                 Text(
                   'Mumbai',
-                  style: TextStyle(color: Colors.black38),
+                  style: TextStyle(
+    color: Color(0xff677294),
+    fontSize: 12,
+    fontFamily: "Poppins",
+    fontWeight: FontWeight.w500,
+    ),
                 ),
+                SizedBox(height: 10,)
               ],
             ),
           ),
@@ -375,8 +407,12 @@ class offer_advatisement extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       //height: height * 0.4,
+      padding: EdgeInsets.symmetric(horizontal: 40),
       width: width,
-      decoration: BoxDecoration(color: Colors.white),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        color: Colors.white,
+      ),
       child: Column(
         children: [
           SizedBox(
@@ -456,9 +492,10 @@ class offer_advatisement extends StatelessWidget {
 
 //grey contact customer//
 
-class grey_contact_customer extends StatelessWidget {
+
+class grey_contact_customer extends StatefulWidget {
   const grey_contact_customer({
-    super.key,
+    Key? key,
     required this.height,
     required this.width,
     required this.title,
@@ -466,7 +503,7 @@ class grey_contact_customer extends StatelessWidget {
     required this.manufacture,
     required this.category,
     required this.id,
-  });
+  }) : super(key: key);
 
   final double height;
   final double width;
@@ -477,80 +514,307 @@ class grey_contact_customer extends StatelessWidget {
   final String id;
 
   @override
+  _GreyContactCustomerState createState() => _GreyContactCustomerState();
+}
+
+class _GreyContactCustomerState extends State<grey_contact_customer> {
+  bool _isExpanded = false;
+
+  void _toggleExpansion() {
+    setState(() {
+      _isExpanded = !_isExpanded;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Container(
-      height: height * 0.3,
-      decoration: BoxDecoration(
-        color: Color.fromARGB(255, 211, 208, 208),
-        borderRadius: BorderRadius.all(
-          Radius.circular(20),
+    return GestureDetector(
+      onTap: _toggleExpansion,
+      child: AnimatedContainer(
+        duration: Duration(milliseconds: 300),
+        height:_isExpanded ? 260 : 180 ,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: Color(0xffe2e2e2),
         ),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [Text('info'), Text('Date')],
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  '15 KVA Mahindra single ph in\n Mumbai with conopy',
-                  style: TextStyle(
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'info',
+                        style: TextStyle(
+                          color: Color(0xff676767),
+                          fontSize: 10,
+                        ),
+                      ),
+                      Text(
+                        'Date',
+                        style: TextStyle(
+                          color: Color(0xff676767),
+                          fontSize: 10,
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        widget.title,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 12,
+                          fontFamily: "Poppins",
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      Text(
+                        widget.date,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 12,
+                          fontFamily: "Poppins",
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              SizedBox(height: 12,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'manufacture',
+                        style: TextStyle(
+                          color: Color(0xff676767),
+                          fontSize: 10,
+                        ),
+                      ),
+                      Text(
+                        widget.manufacture,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 12,
+                          fontFamily: "Poppins",
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Category',
+                        style: TextStyle(
+                          color: Color(0xff676767),
+                          fontSize: 10,
+                        ),
+                      ),
+                      Text(
+                        widget.category,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 12,
+                          fontFamily: "Poppins",
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'List Id',
+                        style: TextStyle(
+                          color: Color(0xff676767),
+                          fontSize: 10,
+                        ),
+                      ),
+                      Text(
+                        widget.id,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 12,
+                          fontFamily: "Poppins",
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              // AnimatedContainer(
+              //   duration: Duration(milliseconds: 300),
+              //   height: _isExpanded ? 80 : 0,
+              //   width: MediaQuery.of(context).size.width,
+              //   child: Column(
+              //     crossAxisAlignment: CrossAxisAlignment.start,
+              //     children: [
+              //       Text(
+              //         'Customer Details:',
+              //         style: TextStyle(
+              //           color: Colors.black,
+              //           fontSize: 12,
+              //           fontFamily: "Poppins",
+              //           fontWeight: FontWeight.w500,
+              //         ),
+              //       ),
+              //       // Add additional customer details here
+              //     ],
+              //   ),
+              // ),
+
+              Expanded(
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Container(
+                    margin: EdgeInsets.only(bottom: 5),
+                    child: GestureDetector(
+                      onTap: _toggleExpansion,
+                      child: Container(
+                        height: _isExpanded ? 0 : 38,
+                        width: MediaQuery.of(context).size.width -60,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Color(0xff0582ca),
+                        ),
+                        child: Center(
+                          child: Text(
+                            "Contact Customer",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 12,
+                              fontFamily: "Poppins",
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      )
+                    ),
+                  ),
+                ),
+              ),
+              _isExpanded ?
+
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Divider(color: Color(0x4c000000),),
+                  SizedBox(height: !_isExpanded ? 0 : 10,),
+                  Text(
+                    "Buyer: Santosh Kulkarni",
+                    style: TextStyle(
                       color: Colors.black,
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold),
-                ),
-                Text(
-                  '12-05-23',
-                  style: TextStyle(fontWeight: FontWeight.w700),
-                )
-              ],
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text('manufacture'),
-                Text('Cateegory'),
-                Text('List Id'),
-              ],
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Mahindra',
-                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
-                ),
-                Text(
-                  '5-15 KVA',
-                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
-                ),
-                Text(
-                  'wm#00031',
-                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 25,
-            ),
-            CommonButton(buttonText: 'Contact Customer', width: width * 1.5)
-          ],
+                      fontSize: 12,
+                    ),
+                  ),
+                  SizedBox(height: !_isExpanded ? 0 : 5,),
+                  Text(
+                    "Contact No.: +91-9876543210",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 12,
+                    ),
+                  ),
+                  SizedBox(height: !_isExpanded ? 0 : 5,),
+                  Text(
+                    "Location: Pune",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 12,
+                    ),
+                  ),
+                  SizedBox(height: !_isExpanded ? 0 : 13,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children:[
+                      Expanded(
+                        child: Container(
+                          height: _isExpanded? 36:0,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Color(0xff0582ca),
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children:[
+                              Image.asset("assets/images/ChatIconOutline.png",height: 16,),
+                              SizedBox(width: 10),
+                              Text(
+                                "Chat",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 13,
+                                  fontFamily: "Poppins",
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 20),
+                      Expanded(
+                        child: Container(
+                          height: _isExpanded? 36:0,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Color(0xff0ebe7e),
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children:[
+                              Icon(Icons.call,color: Colors.white,size: 16,),
+                              SizedBox(width: 10),
+                              Text(
+                                "Call",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 12,
+                                  fontFamily: "Lexend",
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
+                ],
+              )
+                  :
+              SizedBox()
+            ],
+          ),
         ),
       ),
     );
   }
 }
+

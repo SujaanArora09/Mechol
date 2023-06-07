@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:Sujaan_MecholApp/widgets/common_widgets.dart';
+import 'package:Sujaan_MecholApp/widgets/gradientAppBar.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
@@ -22,19 +23,12 @@ class _SearchPageState extends State<SearchPage> {
       child: DropdownButton<String>(
         underline: Container(
           height: 1,
-          color: Colors.blue,
+          color: Color(0xff0582ca),
         ),
         isExpanded: true,
 
-        // iconSize: 50,
-
-        // focusColor: Colors.red,
-        // borderRadius: BorderRadius.circular(25),
-
-        // Step 3.
         value: dropdownValue,
 
-        // Step 4.
         items: <String>[
           'Select type',
           'Select category',
@@ -53,7 +47,7 @@ class _SearchPageState extends State<SearchPage> {
             ),
           );
         }).toList(),
-        // Step 5.
+
         onChanged: (String? newValue) {
           setState(() {
             dropdownValue = newValue!;
@@ -68,68 +62,67 @@ class _SearchPageState extends State<SearchPage> {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
-      appBar: AppBar(
-        leading: Icon(
-          Icons.arrow_back,
-          color: Colors.white,
-        ),
-        title: Align(
-          alignment: Alignment.center,
-          child: Text(
-            'Search',
-            style: TextStyle(
-              color: Colors.white,
-            ),
-          ),
-        ),
-        actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.notifications))
-        ],
+      appBar: GradientAppBar(
+        title: 'Search', backButton: true, bellIcon: true,
       ),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                height: height * 0.08,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(20),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Padding(
+            padding: EdgeInsets.all(20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  height: 50,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.white,
+                  ),
+                  child: Row(
+                    children: const [
+                      Padding(
+                        padding: EdgeInsets.only(left: 15, right: 15),
+                        child: Icon(
+                            Icons.search,
+                            color:Color(0xff0272b3)
+                        ),
+                      ),
+                      Text(
+                        'Search',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 14,
+                          fontFamily: "Poppins",
+                          fontWeight: FontWeight.w400,
+                        ),
+                      )
+                    ],
                   ),
                 ),
-                child: Row(
-                  children: [
-                    //search_text_field
-                    Padding(
-                      padding: const EdgeInsets.only(left: 15, right: 15),
-                      child: Icon(
-                        Icons.search,
-                        color: Colors.blue,
-                      ),
-                    ),
-                    Expanded(
-                      child: TextField(
-                        decoration: InputDecoration(
-                            hintText: 'Search', border: InputBorder.none),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              //textfield
-              //
-              myDropDown(dropdownValue1),
-              myDropDown(dropdownValue2),
-              myDropDown(dropdownValue3),
-              myDropDown(dropdownValue4),
-              myDropDown(dropdownValue5),
-            ],
+                SizedBox(height: 20,),
+                myDropDown(dropdownValue1),
+                SizedBox(height: 20,),
+                myDropDown(dropdownValue2),
+                SizedBox(height: 20,),
+                myDropDown(dropdownValue3),
+                SizedBox(height: 20,),
+                myDropDown(dropdownValue4),
+                SizedBox(height: 20,),
+                myDropDown(dropdownValue5),
+
+              ],
+            ),
           ),
-        ),
+          Container(
+            margin: EdgeInsets.only(bottom: 20),
+            child: CustomButton(text: 'Search', onClick: (){
+              //Search
+            }),
+          )
+        ],
       ),
+
     );
   }
 }

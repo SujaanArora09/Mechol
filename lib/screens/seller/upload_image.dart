@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:pranjal_intern2/widgets/common_widgets.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:Sujaan_MecholApp/screens/seller/AdPosted.dart';
+import 'package:Sujaan_MecholApp/widgets/common_widgets.dart';
+import 'package:Sujaan_MecholApp/widgets/gradientAppBar.dart';
 
 class UploadImage extends StatefulWidget {
   const UploadImage({super.key});
@@ -13,64 +17,111 @@ class UploadImage extends StatefulWidget {
 class _UploadImageState extends State<UploadImage> {
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        leading: IconButton(
-          onPressed: () {},
-          icon: Icon(Icons.arrow_back),
-        ),
-        title: Text('Sell Machine'),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.notifications),
-          )
-        ],
+      appBar:GradientAppBar(
+        title: "Sell Machine",
+        backButton: true,
+        bellIcon: true,
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
             Container(
-              height: height * 0.3,
-              width: width,
-              decoration: BoxDecoration(color: Colors.grey),
+              width: 375,
+              height: 210.94,
+              color: Color(0xffd9d9d9),
             ),
             SizedBox(
-              height: height * 0.1,
+              height: 30,
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  height: height * 0.2,
-                  width: width * 0.4,
-                  decoration: BoxDecoration(color: Colors.white),
-                  child: Icon(
-                    Icons.camera_alt_rounded,
-                    size: 50,
+                  height: 128,
+                  width: 128,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Color(0xffd9d9d9),
+                        blurRadius: 22,
+                        offset: Offset(0, 0),
+                      ),
+                    ],
+                    color: Color(0xfff5f5f5),
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+
+                    children: [
+                      Icon(
+                        Icons.camera_alt_rounded,
+                        size: 50,
+                        color: Color(0xff677294),
+                      ),
+                      Text(
+                        "Take a picture",
+                        style: TextStyle(
+                          color: Color(0xff677294),
+                          fontSize: 14,
+                          fontFamily: "Poppins",
+                          fontWeight: FontWeight.w500,
+                        ),
+                      )
+                    ],
                   ),
                 ),
+                SizedBox(width: 40,),
                 Container(
-                  height: height * 0.2,
-                  width: width * 0.4,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
+                  height: 128,
+                  width: 128,
+                  decoration:BoxDecoration(
+                    borderRadius: BorderRadius.circular(5),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Color(0xffd9d9d9),
+                        blurRadius: 22,
+                        offset: Offset(0, 0),
+                      ),
+                    ],
+                    color: Color(0xfff5f5f5),
                   ),
-                  child: Icon(
-                    Icons.image,
-                    size: 50,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.image,
+                        size: 50,
+                        color: Color(0xff677294),
+                      ),
+                      Text(
+                        "Upload from\ngallery",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Color(0xff677294),
+                          fontSize: 14,
+                          fontFamily: "Poppins",
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],
             ),
-            SizedBox(
-              height: height * 0.12,
-            ),
-            CommonButton(buttonText: 'Proceed', width: width)
+            Expanded(
+              child: Align(
+               alignment: Alignment.bottomCenter,
+                child: Container(
+                  margin: EdgeInsets.only(bottom: 30),
+                  child: CustomButton(text: "Proceed", onClick: (){
+                      Get.to(AdPosted());
+                  }),
+                ),
+              ),
+            )
           ],
         ),
       ),

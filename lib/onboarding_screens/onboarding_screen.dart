@@ -3,9 +3,9 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:pranjal_intern2/login_screen/sign_up_screen.dart';
-import 'package:pranjal_intern2/onboarding_screens/build_page.dart';
-import 'package:pranjal_intern2/widgets/common_widgets.dart';
+import 'package:Sujaan_MecholApp/login_screen/sign_up_screen.dart';
+import 'package:Sujaan_MecholApp/onboarding_screens/build_page.dart';
+import 'package:Sujaan_MecholApp/widgets/common_widgets.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -42,26 +42,25 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               heading: 'Find Trusted Seller',
               imgLoc: 'assets/images/onboarding_1.png',
               subTitle:
-                  'contrary to lorem porem donsdkjf ksadfj askdfj nakdjf nadskfj nadskfj nasdkfj n',
+                  'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of it over 2000 years old.',
             ),
             BuildPage(
               heading: "Choose Best Machines",
                 imgLoc: "assets/images/onboarding_2.png",
               subTitle:
-                  'contrary to lorem porem donsdkjf ksadfj askdfj nakdjf nadskfj nadskfj nasdkfj n',
+                  'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of it over 2000 years old.',
             ),
             BuildPage(
               heading: "Easy Appointments",
               imgLoc: "assets/images/onboarding_3.png",
               subTitle:
-                  "contrary aksdjf kjn ksad jndk jnasdk jnadsk jn kadsjfn kasjdfn kasdjfn ksadj nsdf ",
+                  "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of it over 2000 years old. ",
             ),
           ],
         ),
         bottomSheet: (isLastPage)
             ? Container(
           color: Colors.white,
-                margin: const EdgeInsets.symmetric(horizontal: 40),
                 height: 90,
                 child: Column(
                   children: [
@@ -71,7 +70,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       },
                       child: CustomButton(
                         width: width,
-                         text: 'Get Started', onClick: () {  },
+                         text: 'Get Started', onClick: () {
+                        Get.to(SignUpScreen());
+                      },
                       ),
                     ),
                     const SizedBox(
@@ -91,16 +92,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             duration: const Duration(milliseconds: 200),
                             curve: Curves.easeInOut);
                       },
-                      child: Container(
-                        margin: const EdgeInsets.symmetric(horizontal: 40),
-                        child: CustomButton(
-                          width: width,
-                          text: 'Next', onClick: () {
-                          controller.nextPage(
-                              duration: Duration(milliseconds: 200),
-                              curve: Curves.easeInOut);
-                        },
-                        ),
+                      child: CustomButton(
+                        width: width,
+                        text: 'Next', onClick: () {
+                        controller.nextPage(
+                            duration: Duration(milliseconds: 200),
+                            curve: Curves.easeInOut);
+                      },
                       ),
                     ),
                     SizedBox(
@@ -116,10 +114,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           fontSize: 14,
                         ),),
                     ),
-                    SizedBox(
-                      height: 10,
-
-                    ),
+                    // SizedBox(
+                    //   height: 10,
+                    //
+                    // ),
                   ],
                 ),
               ));

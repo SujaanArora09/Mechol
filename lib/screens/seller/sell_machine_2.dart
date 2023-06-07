@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:pranjal_intern2/widgets/common_widgets.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:Sujaan_MecholApp/screens/seller/upload_image.dart';
+import 'package:Sujaan_MecholApp/widgets/common_widgets.dart';
+import 'package:Sujaan_MecholApp/widgets/gradientAppBar.dart';
 
 class SellMachine2 extends StatefulWidget {
   const SellMachine2({super.key});
@@ -11,6 +15,7 @@ class SellMachine2 extends StatefulWidget {
 }
 
 class _SellMachine2State extends State<SellMachine2> {
+  List<String> list = <String>['One', 'Two', 'Three', 'Four'];
   late String selectedOption;
   String dropdownValue1 = "Select type";
   String dropdownValue2 = "Select category";
@@ -69,69 +74,335 @@ class _SellMachine2State extends State<SellMachine2> {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        leading: IconButton(
-          onPressed: () {},
-          icon: Icon(Icons.arrow_back),
-        ),
-        title: Text('sell machine'),
-        actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.notifications))
-        ],
+      appBar: GradientAppBar(
+        title: " Sell Machine",
+        backButton:  true,
+        bellIcon: true,
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                '50KVA Kirloskar make three ph Generator for sell',
-                style: TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.w700,
-                ),
+            SizedBox(height: 30,),
+            Text(
+              "50KVA Kirloskar make three ph Generator for sell",
+              style: TextStyle(
+                color: Color(0xff222222),
+                fontSize: 14,
+                fontFamily: "Poppins",
+                fontWeight: FontWeight.w500,
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                child: Column(
-                  children: [
-                    myDropDown(dropdownValue1),
-                    myDropDown(dropdownValue1),
-                    CustomTextField(
-                        width: width * 2, hint: '', label: 'age in year'),
-                    myDropDown(dropdownValue1),
-                    myDropDown(dropdownValue1),
-                    myDropDown(dropdownValue1),
-                    myDropDown(dropdownValue1),
-                    myDropDown(dropdownValue1),
-                    myDropDown(dropdownValue1),
-                    myDropDown(dropdownValue1),
-                    myDropDown(dropdownValue1),
-                    CustomTextField(
-                        width: width * 2, hint: '', label: 'age in year'),
-                    CustomTextField(
-                        width: width * 2, hint: '', label: 'age in year'),
-                    CustomTextField(
-                        width: width * 2, hint: '', label: 'age in year'),
-                    myDropDown(dropdownValue1),
-                    myDropDown(dropdownValue1),
-                    CustomTextField(
-                        width: width * 2, hint: '', label: 'age in year'),
-                  ],
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  SizedBox(height: 30,),
+                  SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  child: DropdownButton<String>(
+                    hint: Text("Category*"),
+                  icon: const Icon(Icons.keyboard_arrow_down_outlined,),
+                  style: const TextStyle(color: Colors.blue),
+                  underline: Container(
+                    height: 1,
+                    color: Colors.blue,
+                  ),
+                  onChanged: (String? value) {
+                    setState(() {
+                    });
+                  },
+                  items: list.map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList(),
+              ),
                 ),
+                  SizedBox(height: 30,),
+                  SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  child: DropdownButton<String>(
+                    hint: Text("Manufacturer*"),
+                  icon: const Icon(Icons.keyboard_arrow_down_outlined,),
+                  style: const TextStyle(color: Colors.blue),
+                  underline: Container(
+                    height: 1,
+                    color: Colors.blue,
+                  ),
+                  onChanged: (String? value) {
+                    setState(() {
+                    });
+                  },
+                  items: list.map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList(),
+              ),
+                ),
+
+                  SizedBox(height: 30,),
+                  TextField(decoration: InputDecoration(hintText: "Age in year"),),
+                  SizedBox(height: 30,),
+                  SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  child: DropdownButton<String>(
+                    hint: Text("Condition"),
+                  icon: const Icon(Icons.keyboard_arrow_down_outlined,),
+                  style: const TextStyle(color: Colors.blue),
+                  underline: Container(
+                    height: 1,
+                    color: Colors.blue,
+                  ),
+                  onChanged: (String? value) {
+                    setState(() {
+                    });
+                  },
+                  items: list.map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList(),
+              ),
+                ),
+                  SizedBox(height: 30,),
+                  SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  child: DropdownButton<String>(
+                    hint: Text("Machine Status"),
+                  icon: const Icon(Icons.keyboard_arrow_down_outlined,),
+                  style: const TextStyle(color: Colors.blue),
+                  underline: Container(
+                    height: 1,
+                    color: Colors.blue,
+                  ),
+                  onChanged: (String? value) {
+                    setState(() {
+                    });
+                  },
+                  items: list.map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList(),
+              ),
+                ),
+                  SizedBox(height: 30,),
+                  SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  child: DropdownButton<String>(
+                    hint: Text("Fuel"),
+                  icon: const Icon(Icons.keyboard_arrow_down_outlined,),
+                  style: const TextStyle(color: Colors.blue),
+                  underline: Container(
+                    height: 1,
+                    color: Colors.blue,
+                  ),
+                  onChanged: (String? value) {
+                    setState(() {
+                    });
+                  },
+                  items: list.map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList(),
+              ),
+                ),
+                  SizedBox(height: 30,),
+                  SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  child: DropdownButton<String>(
+                    hint: Text("Voltage"),
+                  icon: const Icon(Icons.keyboard_arrow_down_outlined,),
+                  style: const TextStyle(color: Colors.blue),
+                  underline: Container(
+                    height: 1,
+                    color: Colors.blue,
+                  ),
+                  onChanged: (String? value) {
+                    setState(() {
+                    });
+                  },
+                  items: list.map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList(),
+              ),
+                ),
+                  SizedBox(height: 30,),
+                  SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  child: DropdownButton<String>(
+                    hint: Text("Phase (1/3)"),
+                  icon: const Icon(Icons.keyboard_arrow_down_outlined,),
+                  style: const TextStyle(color: Colors.blue),
+                  underline: Container(
+                    height: 1,
+                    color: Colors.blue,
+                  ),
+                  onChanged: (String? value) {
+                    setState(() {
+                    });
+                  },
+                  items: list.map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList(),
+              ),
+                ),
+                  SizedBox(height: 30,),
+                  SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  child: DropdownButton<String>(
+                    hint: Text("Frequency"),
+                  icon: const Icon(Icons.keyboard_arrow_down_outlined,),
+                  style: const TextStyle(color: Colors.blue),
+                  underline: Container(
+                    height: 1,
+                    color: Colors.blue,
+                  ),
+                  onChanged: (String? value) {
+                    setState(() {
+                    });
+                  },
+                  items: list.map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList(),
+              ),
+                ),
+                  SizedBox(height: 30,),
+                  SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  child: DropdownButton<String>(
+                    hint: Text("Speed (RPM)"),
+                  icon: const Icon(Icons.keyboard_arrow_down_outlined,),
+                  style: const TextStyle(color: Colors.blue),
+                  underline: Container(
+                    height: 1,
+                    color: Colors.blue,
+                  ),
+                  onChanged: (String? value) {
+                    setState(() {
+                    });
+                  },
+                  items: list.map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList(),
+              ),
+                ),
+                  SizedBox(height: 30,),
+                  SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  child: DropdownButton<String>(
+                    hint: Text("Seller View"),
+                  icon: const Icon(Icons.keyboard_arrow_down_outlined,),
+                  style: const TextStyle(color: Colors.blue),
+                  underline: Container(
+                    height: 1,
+                    color: Colors.blue,
+                  ),
+                  onChanged: (String? value) {
+                    setState(() {
+                    });
+                  },
+                  items: list.map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList(),
+              ),
+                ),
+                  SizedBox(height: 30,),
+                  TextField(decoration: InputDecoration(hintText: "Quantity*"),),
+                  SizedBox(height: 30,),
+                  TextField(decoration: InputDecoration(hintText: "Keywords"),),
+                  SizedBox(height: 30,),
+                  SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  child: DropdownButton<String>(
+                    hint: Text("State*"),
+                  icon: const Icon(Icons.keyboard_arrow_down_outlined,),
+                  style: const TextStyle(color: Colors.blue),
+                  underline: Container(
+                    height: 1,
+                    color: Colors.blue,
+                  ),
+                  onChanged: (String? value) {
+                    setState(() {
+                    });
+                  },
+                  items: list.map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList(),
+              ),
+                ),
+                  SizedBox(height: 30,),
+                  SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  child: DropdownButton<String>(
+                    hint: Text("City*"),
+                  icon: const Icon(Icons.keyboard_arrow_down_outlined,),
+                  style: const TextStyle(color: Colors.blue),
+                  underline: Container(
+                    height: 1,
+                    color: Colors.blue,
+                  ),
+                  onChanged: (String? value) {
+                    setState(() {
+                    });
+                  },
+                  items: list.map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList(),
+              ),
+                ),
+                  SizedBox(height: 30,),
+                  TextField(decoration: InputDecoration(hintText: "Additional Info"),),
+                  SizedBox(height: 30,),
+                ],
               ),
             ),
-            CommonButton(buttonText: 'Procede', width: width),
+            CustomButton(text: "Proceed", onClick: (){
+                  Get.to(UploadImage());
+            }),
             SizedBox(
-              height: 7,
+              height: 12,
             ),
             Text(
-              'skip',
-              style: TextStyle(color: Colors.grey),
-            )
+              "Skip",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Color(0xff677294),
+                fontSize: 14,
+              ),
+            ),
+            SizedBox(
+              height: 15,
+            ),
           ],
         ),
       ),

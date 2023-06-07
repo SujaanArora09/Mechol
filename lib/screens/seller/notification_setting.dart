@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:Sujaan_MecholApp/widgets/gradientAppBar.dart';
 
 class NotificationSetting extends StatefulWidget {
   const NotificationSetting({super.key});
@@ -19,13 +20,10 @@ class _NotificationSettingState extends State<NotificationSetting> {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        leading: IconButton(
-          onPressed: () {},
-          icon: Icon(Icons.arrow_back_ios),
-        ),
-        title: Text('Notification setting'),
+      appBar: GradientAppBar(
+        title: "Notifications Settings",
+        backButton: true,
+        bellIcon: false,
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -33,17 +31,18 @@ class _NotificationSettingState extends State<NotificationSetting> {
           children: [
             Container(
               height: height * 0.08,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(20),
-                  ),
-                  color: Colors.white),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Text('Leads Notifications'),
+                    child: Text('Leads Notifications'
+                    ,style: TextStyle(
+                          color: Color(0x66000000),
+                          fontSize: 16,
+                          fontFamily: "Poppins",
+                          fontWeight: FontWeight.w500,
+                        ),),
                   ),
                   Switch.adaptive(
                       value: _light1,
@@ -59,17 +58,18 @@ class _NotificationSettingState extends State<NotificationSetting> {
               padding: const EdgeInsets.only(top: 10, bottom: 10),
               child: Container(
                 height: height * 0.08,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(20),
-                    ),
-                    color: Colors.white),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text('Chat Notification'),
+                      child: Text('Chat Notification',
+                      style: TextStyle(
+                        color: Color(0x66000000),
+                        fontSize: 16,
+                        fontFamily: "Poppins",
+                        fontWeight: FontWeight.w500,
+                      ),),
                     ),
                     Switch.adaptive(
                         value: _light2,
@@ -84,17 +84,18 @@ class _NotificationSettingState extends State<NotificationSetting> {
             ),
             Container(
               height: height * 0.08,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(20),
-                  ),
-                  color: Colors.white),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Text('Apps Alerts'),
+                    child: Text('Apps Alerts',
+                    style: TextStyle(
+                      color: Color(0x66000000),
+                      fontSize: 16,
+                      fontFamily: "Poppins",
+                      fontWeight: FontWeight.w500,
+                    ),),
                   ),
                   Switch.adaptive(
                       value: _light3,

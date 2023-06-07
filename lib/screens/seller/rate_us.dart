@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:pranjal_intern2/widgets/common_widgets.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:Sujaan_MecholApp/screens/bottomnav.dart';
+import 'package:Sujaan_MecholApp/widgets/common_widgets.dart';
+import 'package:Sujaan_MecholApp/widgets/gradientAppBar.dart';
 
 class RateUs extends StatefulWidget {
   const RateUs({super.key});
@@ -16,19 +21,11 @@ class _RateUsState extends State<RateUs> {
     double width = MediaQuery.of(context).size.width;
     double heigh = MediaQuery.of(context).size.height;
     return Scaffold(
-      appBar: AppBar(
-          centerTitle: true,
-          leading: IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.arrow_back),
-          ),
-          title: Text('Rate Us'),
-          actions: [
-            IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.notifications),
-            )
-          ]),
+      appBar: GradientAppBar(
+        title: "Rate Us",
+        backButton: true,
+        bellIcon: false,
+      ),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -63,7 +60,9 @@ class _RateUsState extends State<RateUs> {
             SizedBox(
               height: heigh * 0.2,
             ),
-            CommonButton(buttonText: 'Submit', width: width)
+            CustomButton(text: "Submit", onClick: (){
+              Get.to(BottomNavigation());
+            })
           ],
         ),
       ),

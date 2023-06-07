@@ -1,4 +1,4 @@
-# pranjal_intern2
+# Sujaan_MecholApp
 
 A new Flutter project.
 

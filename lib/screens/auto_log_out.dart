@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:pranjal_intern2/widgets/common_widgets.dart';
+import 'package:Sujaan_MecholApp/widgets/common_widgets.dart';
 
 class AutoLogOut extends StatefulWidget {
   const AutoLogOut({super.key});

@@ -7,7 +7,7 @@ class CustomCarousel extends StatelessWidget {
   final String imgLoc1;
   final String imgLoc2;
   final String imgLoc3;
-  final String imgLoc4;
+  final String  imgLoc4;
 
   final double CHeight;
   late List<CarouselItem> itemList = [
@@ -36,7 +36,7 @@ class CustomCarousel extends StatelessWidget {
           items: itemList,
           showText: true,
           height: CHeight,
-          autoplay: true,
+          autoplay: false,
           showSubBackground: false,
         )
       ],

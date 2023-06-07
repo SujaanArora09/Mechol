@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "pranjal_intern2" "\0"
+            VALUE "FileDescription", "Sujaan_MecholApp" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "pranjal_intern2" "\0"
+            VALUE "InternalName", "Sujaan_MecholApp" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2023 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "pranjal_intern2.exe" "\0"
-            VALUE "ProductName", "pranjal_intern2" "\0"
+            VALUE "OriginalFilename", "Sujaan_MecholApp.exe" "\0"
+            VALUE "ProductName", "Sujaan_MecholApp" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

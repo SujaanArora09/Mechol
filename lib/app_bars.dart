@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:pranjal_intern2/screens/seller/profile_page.dart';
+import 'package:Sujaan_MecholApp/screens/seller/profile_page.dart';
 
 AppBar testAppBar() {
   return AppBar(

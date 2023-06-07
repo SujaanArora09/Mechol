@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:pranjal_intern2/onboarding_screens/build_page.dart';
-//import 'package:pranjal_intern2/onboarding_screens/onboarding_screen_2.dart';
-import 'package:pranjal_intern2/widgets/common_widgets.dart';
+import 'package:Sujaan_MecholApp/onboarding_screens/build_page.dart';
+//import 'package:Sujaan_MecholApp/onboarding_screens/onboarding_screen_2.dart';
+import 'package:Sujaan_MecholApp/widgets/common_widgets.dart';
 
 //import 'package:get/get.dart';
 
@@ -35,20 +35,23 @@ class BuildPage extends StatelessWidget {
                 ),
               ),
               Positioned(
-                top: height * 0.705,
-                left: width * 0.155,
+                bottom: 0,
+                left: 40,
+                right: 40,
                 child: Container(
                   decoration: const BoxDecoration(),
-                  height: 150,
-                  width: width * 0.7,
+                  // height: 150,
+                  // width: width * 0.7,
                   child: Column(
                     children: [
                       Text(
                         heading,
                         textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
+                        style: const TextStyle(
+                          color: Color(0xff333333),
+                          fontSize: 24,
+                          fontFamily: "Poppins",
+                          fontWeight: FontWeight.w600,
                         ),
                       ),
                       const SizedBox(
@@ -57,7 +60,10 @@ class BuildPage extends StatelessWidget {
                       Text(
                         subTitle,
                         textAlign: TextAlign.center,
-                        style: const TextStyle(fontSize: 14, color: Colors.black38),
+                        style: const TextStyle(
+                          color: Color(0xe5677294),
+                          fontSize: 14,
+                        ),
                       ),
                     ],
                   ),
