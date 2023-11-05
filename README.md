@@ -56,7 +56,7 @@ We welcome contributions from the community. If you'd like to contribute to the 
 
 ## License
 
-MECHOL is licensed under the [MIT License](LICENSE.md).
-
 ## Contact Me
-you can connect via linkedin [Sujaan](https://www.linkedin.com/in/sujaan-arora-274584216/)
+If you have any questions or suggestions regarding the project, please feel free to [contact me](https://www.linkedin.com/in/sujaan-arora-274584216/).
+
+I hope it helps making your selling & buying process seamless & cost-effective !
