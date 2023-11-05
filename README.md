@@ -5,6 +5,10 @@
 # MECHOL B2B Marketplace
 
 Welcome to MECHOL, your premier B2B marketplace for second-hand and used industrial & domestic application products. Whether you're buying, selling, or exploring our comprehensive services, MECHOL is designed to make the process seamless and cost-effective.
+
+PlayStore Download Link : [here](https://play.google.com/store/apps/details?id=com.mechol.shellcode&pcampaignid=web_share)
+
+
 ![image](https://github.com/SujaanArora09/Mechol/assets/94820300/5156aceb-96af-4a27-98d6-74abd356d28e)
 
 
@@ -35,7 +39,7 @@ Follow these steps to get started with MECHOL:
    ```
 
 2. **Figma Design Integration:**
-   - Our UI/UX is meticulously crafted using Figma. Explore the design [here](link-to-figma-design).
+   - Our UI/UX is meticulously crafted using Figma.
 
 3. **Flutter Powered App:**
    - MECHOL is built with Flutter, ensuring a powerful and cross-platform experience. Make sure you have Flutter installed, then run:
@@ -54,8 +58,5 @@ We welcome contributions from the community. If you'd like to contribute to the 
 
 MECHOL is licensed under the [MIT License](LICENSE.md).
 
-## Contact Us
-
-For any inquiries or support, feel free to reach out to us at support@mechol.com.
-
-Happy Buying and Selling on MECHOL!
+## Contact Me
+you can connect via linkedin [Sujaan](https://www.linkedin.com/in/sujaan-arora-274584216/)
