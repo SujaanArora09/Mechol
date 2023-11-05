@@ -54,8 +54,6 @@ Follow these steps to get started with MECHOL:
 
 We welcome contributions from the community. If you'd like to contribute to the development of MECHOL, please follow our [Contribution Guidelines](CONTRIBUTING.md).
 
-## License
-
 ## Contact Me
 If you have any questions or suggestions regarding the project, please feel free to [contact me](https://www.linkedin.com/in/sujaan-arora-274584216/).
 
