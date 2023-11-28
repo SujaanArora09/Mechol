@@ -64,7 +64,7 @@ class _StepsState extends State<Steps> {
       },
       children: _steps.map<ExpansionPanel>((Step step) {
         return ExpansionPanel(
-          hasIcon: false,
+          // hasIcon: false,
           canTapOnHeader: true,
           headerBuilder: (BuildContext context, bool isExpanded) {
             return ListTile(

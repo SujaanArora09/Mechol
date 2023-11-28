@@ -50,7 +50,7 @@ import 'logOutDialogBox.dart';
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                "Rajesh Bhosale",
+                                "Your Name",
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 14,
